@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ArticleDTO } from 'src/dto/articledto';
 import { ArticleService } from 'src/service/article.service';
+import { CompanyDTO } from 'src/dto/companydto';
+import { CompanyService } from 'src/service/company.service';
 
 @Component({
   selector: 'app-articles',
@@ -23,7 +25,7 @@ export class ArticlesComponent implements OnInit {
 
   getArticles() {
     this.service.getAll().subscribe (articles => this.articles = this.articlesOld = articles);
-    this.companyService.getAll().subscribe(companies => this.companies = companies);
+  
   }
 
   update(article: ArticleDTO) {
