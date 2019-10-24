@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { CompanyDTO } from 'src/dto/companydto';
+import { CompanyService } from 'src/service/company.service';
 
 @Component({
   selector: 'app-companies',
@@ -7,9 +9,44 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CompaniesComponent implements OnInit {
 
-  constructor() { }
+    companies: CompanyDTO[];
+    companiesOld: CompanyDTO[];
+    companytoinsert: CompanyDTO = new CompanyDTO ();
+    companytosearch: CompanyDTO = new  CompanyDTO ();
+    
+
+  constructor(private service: CompanyService) { }
 
   ngOnInit() {
+      this.getCompanies();
   }
-
+  getCompanies(){
+      this.service.getAll().subscribe(companies => {
+          this.companies=this.companiesOld =this.companies;
+});
+  }
+delete(company: CompanyDTO){
+    this.service.delete(company.id).subscribe(() => this.getCompanies());
+}
+update(company: CompanyDTO){
+    this.service.update(company).subscribe(() => this.getCompanies);
+}
+insert(company: CompanyDTO){
+this.service.insert(company).subscribe(() => this.getCompanies);
+}
+clear(){
+this.companytoinsert = new CompanyDTO();
+}
+search() {
+    this.companies = [];
+    this.companiesOld.forEach(c => {
+    if ((!this.companytosearch.name || c.name.toLowerCase().includes(this.companytosearch.name.toLowerCase()))) {
+        this.companies.push(c);
+    }
+    });
+}
+clearSearch(){
+    this.companytosearch= new CompanyDTO();
+    this.companies = this.companiesOld;
+}
 }

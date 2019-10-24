@@ -23,7 +23,7 @@
   }
 
   .login #usernamelabel{
-    color: white;
+    color: rgb(10, 10, 10);
       position: absolute;
       right: 25%;
       top: 30%;
@@ -39,7 +39,7 @@
   }
 
   .login #passwordlabel{
-    color: white;
+    color: rgb(10, 10, 10);
       position: absolute;
       right: 25%;
       top: 44%;
@@ -56,18 +56,25 @@
 
   .login #signup{
     position: absolute;
-      color: white;
+      color: rgb(10, 10, 10);
       right: 24%;
       top: 68%;
   }
 
-  .login #loginbutton{
+  .login #loginbutton {
     position: absolute;
-      right: 3.5%;
-      margin: 0;
-      background-color: transparent;
-      width: 10%;
-      padding-top: 9%;
-      border: none;
-      top: 79%;
-  }
+    right: 14%;
+    margin: 0;
+    outline: none;
+    cursor: pointer;
+    text-align: center;
+    text-decoration: none;
+    font: bold 12px Arial, Helvetica, sans-serif;
+    color: #fff;
+    padding: 6px 14px;
+    border: solid 1px transparent;
+    background: transparent;
+    top: 60%;
+
+
+    }
