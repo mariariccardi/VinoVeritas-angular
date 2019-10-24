@@ -1,3 +1,4 @@
+import { NgModule } from '@angular/core';
 import { Component, OnInit } from '@angular/core';
 import { UserDTO } from 'src/dto/userdto';
 import { UserService } from 'src/service/user.service';
