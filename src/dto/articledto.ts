@@ -1,4 +1,5 @@
 import { UserDTO } from './userdto';
+import { CompanyDTO } from './companydto';
 
 export class ArticleDTO {
     id: number;
