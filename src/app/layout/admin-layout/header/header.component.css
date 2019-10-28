@@ -10,10 +10,12 @@
     height: inherit;
     width: 100%;
     background-color: #1e282d !important;
+    display: inline;
   }
 
   .col-md-4{
-    width: 50%;
+    text-align: center;
+
     margin: 0 auto;
   }
 

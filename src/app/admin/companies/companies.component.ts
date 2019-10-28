@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { CompanyDTO } from 'src/dto/companydto';
 import { CompanyService } from 'src/service/company.service';
 import { UserDTO } from 'src/dto/userdto';
+import { UserService } from 'src/service/user.service';
 
 @Component({
   selector: 'app-companies',
@@ -14,11 +15,12 @@ export class CompaniesComponent implements OnInit {
     companiesOld: CompanyDTO[];
     companytoinsert: CompanyDTO;
     companytosearch: CompanyDTO;
+    users: UserDTO [];
 
    
     
 
-  constructor(private service: CompanyService) {
+  constructor(private service: CompanyService, private userservice: UserService) {
         this.companytoinsert = new CompanyDTO ();
         this.companytoinsert.user = new UserDTO ();
         this.companytosearch = new  CompanyDTO ();
@@ -30,9 +32,8 @@ export class CompaniesComponent implements OnInit {
       this.getCompanies();
   }
   getCompanies(){
-    this.service.getAll().subscribe(companies => {
-    this.companies = this.companiesOld = companies;
-});
+    this.service.getAll().subscribe(companies => {this.companies = this.companiesOld = companies;});
+    this.userservice.getAll().subscribe(users =>  this.users = users);
   }
 delete(company: CompanyDTO){
     this.service.delete(company.id).subscribe(() => this.getCompanies());

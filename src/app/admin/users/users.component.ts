@@ -12,10 +12,12 @@ export class UsersComponent implements OnInit {
 
   users: UserDTO [];
   usersOld: UserDTO [];
-  userToInsert: UserDTO = new UserDTO();
+  userToInsert: UserDTO;
   userToSearch: UserDTO = new UserDTO();
 
-  constructor(private service: UserService) {}
+  constructor(private service: UserService) {
+    this.userToInsert = new UserDTO ();
+  }
 
   ngOnInit() {
     this.getUsers();
@@ -33,8 +35,8 @@ export class UsersComponent implements OnInit {
     this.service.delete(user.id).subscribe(() => this.getUsers());
   }
 
-  insert(user: UserDTO) {
-    this.service.insert(user).subscribe(() => this.getUsers());
+  insert() {
+    this.service.insert(this.userToInsert).subscribe(() => this.getUsers());
     this.clear();
   }
 

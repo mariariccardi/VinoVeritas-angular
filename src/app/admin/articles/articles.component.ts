@@ -3,6 +3,9 @@ import { ArticleDTO } from 'src/dto/articledto';
 import { ArticleService } from 'src/service/article.service';
 import { CompanyDTO } from 'src/dto/companydto';
 import { CompanyService } from 'src/service/company.service';
+import { UserService } from '../../../service/user.service';
+import { UserDTO } from 'src/dto/userdto';
+import { THIS_EXPR } from '@angular/compiler/src/output/output_ast';
 
 @Component({
   selector: 'app-articles',
@@ -14,10 +17,19 @@ export class ArticlesComponent implements OnInit {
     articles: ArticleDTO [];
     articlesOld: ArticleDTO [];
     companies: CompanyDTO[];
-    articleToSearch: ArticleDTO = new ArticleDTO ();
-    articleToInsert: ArticleDTO = new ArticleDTO ();
+    users: UserDTO [];
+    articleToSearch: ArticleDTO;
+    articleToInsert: ArticleDTO;
 
-  constructor(private service: ArticleService) {}
+
+  constructor(private service: ArticleService, private companyService: CompanyService, private userService: UserService) {
+    this.articleToInsert = new ArticleDTO ();
+    this.articleToInsert.company = new CompanyDTO ();
+    this.articleToInsert.user = new UserDTO ();
+    this.articleToSearch = new ArticleDTO ();
+    this.articleToSearch.company = new CompanyDTO ();
+    this.articleToSearch.user = new UserDTO ();
+  }
 
   ngOnInit() {
     this.getArticles();
@@ -25,7 +37,8 @@ export class ArticlesComponent implements OnInit {
 
   getArticles() {
     this.service.getAll().subscribe (articles => this.articles = this.articlesOld = articles);
-  
+    this.companyService.getAll().subscribe (companies => this.companies  = companies);
+    this.userService.getAll().subscribe (users => this.users = users);
   }
 
   update(article: ArticleDTO) {
@@ -43,13 +56,15 @@ export class ArticlesComponent implements OnInit {
   
   clear() {
     this.articleToInsert = new ArticleDTO();
+    this.articleToInsert.company = new CompanyDTO ();
+    this.articleToInsert.user = new UserDTO ();
   }
 
   search(){
     this.articles = [];
     this.articlesOld.forEach(a => {
       if ((!this.articleToSearch.name || a.name.toLowerCase().includes(this.articleToSearch.name.toLowerCase()))
-      && (!this.articleToSearch.company || a.company == this.articleToSearch.company)) {
+      && (!this.articleToSearch.company.id || a.company.id == this.articleToSearch.company.id)) {
         this.articles.push(a);
       }
     });
@@ -57,6 +72,9 @@ export class ArticlesComponent implements OnInit {
 
   clearSearch(){
     this.articleToSearch = new ArticleDTO ();
+    this.articleToSearch.company = new CompanyDTO ();
+    this.articleToSearch.user = new UserDTO ();
     this.articles = this.articlesOld;
+   
   }
 }
