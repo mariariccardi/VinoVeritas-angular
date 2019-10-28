@@ -46,7 +46,7 @@ table.orangeTable {
 	padding: 3px 2px;
 	border-radius: 10px;
 	height: 35px;
-	background: #ea7575;
+	background: #75eacd;
 	color: white;
   }
 
@@ -109,7 +109,7 @@ input, select{
 }
 
 input:hover,  input:active, input:focus{
-    border: 2px solid crimson;
+    border: 2px solid rgb(20, 190, 220);
 }
 
 button{
@@ -121,5 +121,5 @@ button{
 button:hover{
 	width: 60px;
 	background-color: #ffffff;
-	color: #ea7575;
+	color: #75eacd;
 }

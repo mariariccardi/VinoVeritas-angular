@@ -5,10 +5,11 @@
                   <input placeholder="name" [(ngModel)]="companytosearch.name">
                 </td>
                 <td>
-                  <input placeholder="address" [(ngModel)]="companytosearch.address">
+                  <input placeholder="city" [(ngModel)]="companytosearch.city">
                 </td>
                 <td>
-                  <input placeholder="city" [(ngModel)]="companytosearch.city">
+                </td>
+                <td>
                 </td>
                 <td>
                     <button class="btn btn-search" (click)="search()"><i class="fas fa-search"></i>Search</button>
@@ -21,7 +22,7 @@
             <th>Name</th>
             <th>Address</th>
             <th>City</th>
-            <th>Sector</th>
+            <th>User</th>
             <th></th>
             <th></th>
           </tr>
@@ -36,6 +37,12 @@
               <input placeholder="insert city" [(ngModel)]="companytoinsert.city">
             </td>
             <td>
+              <input placeholder="insert user" [(ngModel)]="companytoinsert.user.id">
+            </td>
+              <td>
+              <button (click)="insert()">Insert</button>
+            </td>
+            <td>
               <button (click)="clear()">Clear</button>
             </td>
           </tr>
@@ -48,6 +55,9 @@
             </td>
             <td>
               <input [(ngModel)]="company.city">
+            </td>
+            <td>
+              <input [(ngModel)]="company.user.id">
             </td>
             <td>
               <button (click)=update(company)>Save</button>

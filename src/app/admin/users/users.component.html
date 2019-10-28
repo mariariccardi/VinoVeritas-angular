@@ -2,7 +2,6 @@
         <tbody>
             <tr class="searchRow">
                 <td><input placeholder="username" [(ngModel)]="userToSearch.username"></td>
-                <td></td>
                 <td>
                   <select [(ngModel)]="userToSearch.userType">
                       <option [ngValue]="undefined" hidden selected>choose a usertype</option>
@@ -11,8 +10,10 @@
                   </select>
                 </td>
                 <td>
-                    <button class="btn btn-search" (click)="search()"><i class="fas fa-search"></i>Search</button>
                 </td>
+                  <td>
+                    <button class="btn btn-search" (click)="search()"><i class="fas fa-search"></i>Search</button>
+                  </td>
                 <td>
                     <button (click)="clearSearch()">Clear</button>
                 </td>
