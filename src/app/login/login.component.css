@@ -14,7 +14,9 @@
   }
 
   .loginimg{
-    width: 100%;
+
+    width: 119%;
+
   }
 
   .login label {
@@ -23,12 +25,13 @@
   }
 
   .login #usernamelabel{
-    color: rgb(10, 10, 10);
+    color: rgb(221, 28, 28);
       position: absolute;
       right: 25%;
       top: 30%;
       padding: 1%;
       text-align: center;
+      font-size: 20px;
   }
 
   .login #user{
@@ -38,13 +41,19 @@
       padding: 1%;
   }
 
+  *:hover{
+    border-color:red;
+  }
+
+
   .login #passwordlabel{
-    color: rgb(10, 10, 10);
+      color: rgb(221, 28, 28);
       position: absolute;
       right: 25%;
       top: 44%;
       padding: 1%;
       text-align: center;
+      font-size: 20px;
   }
 
   .login #pass{
@@ -63,14 +72,14 @@
 
   .login #loginbutton {
     position: absolute;
-    right: 14%;
+    right: 25%;
     margin: 0;
     outline: none;
     cursor: pointer;
     text-align: center;
     text-decoration: none;
-    font: bold 12px Arial, Helvetica, sans-serif;
-    color: #fff;
+    font: bold 30px Arial, Helvetica, sans-serif;
+    color: rgb(221, 28, 28);
     padding: 6px 14px;
     border: solid 1px transparent;
     background: transparent;

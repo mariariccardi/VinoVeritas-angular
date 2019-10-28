@@ -20,12 +20,12 @@
   .btn-search:link, .btn-search:visited {
 	width: auto;
 	background-color: #ffffff;
-	color: #75eacd;
+	color: #6a70cc;
   }
   .btn-search:active, .btn-search:hover {
 	width: auto;
 	background-color: #ffffff;
-	color: #75eacd;
+	color: #6a70cc;
   }
 
 /*Tables*/
@@ -46,7 +46,7 @@ table.orangeTable {
 	padding: 3px 2px;
 	border-radius: 10px;
 	height: 35px;
-	background: #75eacd;
+	background: #6a70cc;
 	color: white;
   }
 
@@ -108,7 +108,7 @@ input, select{
 }
 
 input:hover,  input:active, input:focus{
-    border: 2px solid rgb(20, 190, 220);
+    border: 2px solid #6a70cc;
 }
 
 button{
@@ -120,5 +120,5 @@ button{
 button:hover{
 	width: 60px;
 	background-color: #ffffff;
-	color: #75eacd;
+	color: #6a70cc;
 }
