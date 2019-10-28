@@ -51,13 +51,15 @@ clear(){
 search() {
     this.companies = [];
     this.companiesOld.forEach(c => {
-    if ((!this.companytosearch.name || c.name.toLowerCase().includes(this.companytosearch.name.toLowerCase()))) {
+        if ((!this.companytosearch.name || c.name.toLowerCase().includes(this.companytosearch.name.toLowerCase())) 
+            && (!this.companytosearch.address || c.address.toLowerCase().includes(this.companytosearch.address.toLowerCase()))
+            && (!this.companytosearch.city || c.city.toLowerCase().includes(this.companytosearch.city.toLowerCase()))) {
         this.companies.push(c);
     }
     });
 }
-clearSearch(){
-    this.companytosearch= new CompanyDTO();
+clearSearch() {
+    this.companytosearch = new CompanyDTO();
     this.companytosearch.user = new UserDTO ();
     this.companies = this.companiesOld;
 }
